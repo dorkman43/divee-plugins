@@ -21,7 +21,18 @@
 - [ ] Name doesn't impersonate another brand's official product
   다른 브랜드의 공식 제품처럼 보이는 이름은 피해 주세요
 
-## Mascots & plugins / 마스코트·플러그인
+## Mascots / 마스코트
 
-Coming soon — guides will be added here when Divee supports them.
-준비 중이에요 — Divee 가 지원하면 지침서와 함께 열게요.
+1. Make it with [guides/AI-GUIDE-mascot.md](guides/AI-GUIDE-mascot.md), install it in Divee first and check every expression looks right.
+   [AI 지침서](guides/AI-GUIDE-mascot.md)로 만들고 먼저 Divee 에 설치해 표정마다 잘 보이는지 확인하세요.
+2. Folder at `mascots/<author>.<name>/` (folder name = `id`), one entry in `index.json`.
+   폴더는 `mascots/<작성자>.<이름>/`, `index.json` 에 한 줄.
+3. Checklist / 검토 기준:
+   - [ ] `"type": "mascot"`, `images.normal` present, no `permissions`
+   - [ ] Original art or art you have the right to share — no copyrighted characters
+     직접 그렸거나 공유할 권리가 있는 그림 — 저작권 있는 캐릭터는 안 돼요
+   - [ ] SVG without `<image>`, `<text>`, scripts or external links; PNG ≤ 2048 px
+
+## Plugins / 플러그인
+
+Coming soon. 준비 중이에요.

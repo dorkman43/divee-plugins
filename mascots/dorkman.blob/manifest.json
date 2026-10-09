@@ -1,0 +1,16 @@
+{
+  "id": "dorkman.blob",
+  "name": "말랑이",
+  "version": "1.0.0",
+  "type": "mascot",
+  "apiVersion": 1,
+  "author": "dorkman",
+  "description": "둥글고 말랑한 민트색 마스코트. SVG 네 장과 PNG 한 장으로 만든 마스코트 팩 예제예요.",
+  "images": {
+    "normal": "normal.svg",
+    "happy": "happy.svg",
+    "alert": "alert.png",
+    "sleepy": "sleepy.svg",
+    "blink": "blink.svg"
+  }
+}

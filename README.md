@@ -11,7 +11,7 @@ Themes, mascots and plugins for [Divee](https://github.com/dorkman43/divee), the
 | Kind | Folder | AI guide | Status |
 |---|---|---|---|
 | 🎨 Themes — colors, font, text size, corners, spacing | [`themes/`](themes) | [AI-GUIDE-theme.md](guides/AI-GUIDE-theme.md) | ✅ open |
-| 🐾 Mascots — replace the menu bar character | [`mascots/`](mascots) | coming soon | 🚧 |
+| 🐾 Mascots — replace the menu bar character | [`mascots/`](mascots) | [AI-GUIDE-mascot.md](guides/AI-GUIDE-mascot.md) | ✅ open |
 | 🧩 Plugins — new commands and cards (JavaScript) | [`plugins/`](plugins) | coming soon | 🚧 |
 
 ## Themes
@@ -20,6 +20,14 @@ Themes, mascots and plugins for [Divee](https://github.com/dorkman43/divee), the
 |---|---|
 | <img src="images/tokyo-night.png" width="300" alt="Tokyo Night theme"> | <img src="images/solarized-light.png" width="300" alt="Solarized Light theme"> |
 | Colors only | Colors + font (Avenir Next), 110 % text, rounder corners, roomy rows |
+
+## Mascots
+
+<img src="images/blob.png" width="560" alt="Blob mascot: normal, happy, alert, sleepy">
+
+**말랑이 (Blob)** — SVG drawings plus one PNG. Divee adds the bounce, the red-and-steam when your Mac is hot and the fade on low battery by itself; the pack only supplies the pictures.
+
+Make one: paste [guides/AI-GUIDE-mascot.md](guides/AI-GUIDE-mascot.md) into an AI chat and describe the character (*"a sleepy orange cat"*, *"my white fluffy dog with a red collar"*). Install it the same way as a theme, then pick it in Settings › General › **Mascot**.
 
 ## Make your own theme with AI
 
@@ -35,14 +43,14 @@ Just want a slightly different look? Divee › Settings › General › Theme �
 ## Install
 
 1. Download this repository (**Code › Download ZIP**) or just the folder you want.
-2. Divee › Settings › **Plugins** › **Install from Folder…** → choose the theme folder (e.g. `themes/dorkman.tokyo-night`).
-3. Settings › General › **Theme** → select it.
+2. Divee › Settings › **Plugins** › **Install from Folder…** → choose the folder (e.g. `themes/dorkman.tokyo-night` or `mascots/dorkman.blob`).
+3. Settings › General › **Theme** (or **Mascot**) → select it.
 
-Themes are data only — they can't run code or ask for permissions.
+Themes and mascots are data only — they can't run code or ask for permissions.
 
 ## Share yours
 
-Pull requests are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Add your folder under `themes/` and an entry in [`index.json`](index.json).
+Pull requests are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Add your folder under `themes/` or `mascots/` and an entry in [`index.json`](index.json).
 
 ## License
 

@@ -11,7 +11,7 @@ macOS 메뉴바 도우미 [Divee](https://github.com/dorkman43/divee) 용 테마
 | 종류 | 폴더 | AI 지침서 | 상태 |
 |---|---|---|---|
 | 🎨 테마 — 색·글꼴·글자 크기·모서리·간격 | [`themes/`](themes) | [AI-GUIDE-theme.md](guides/AI-GUIDE-theme.md) | ✅ 열림 |
-| 🐾 마스코트 — 메뉴바 캐릭터 바꾸기 | [`mascots/`](mascots) | 준비 중 | 🚧 |
+| 🐾 마스코트 — 메뉴바 캐릭터 바꾸기 | [`mascots/`](mascots) | [AI-GUIDE-mascot.md](guides/AI-GUIDE-mascot.md) | ✅ 열림 |
 | 🧩 플러그인 — 새 명령·카드(JavaScript) | [`plugins/`](plugins) | 준비 중 | 🚧 |
 
 ## 테마
@@ -20,6 +20,14 @@ macOS 메뉴바 도우미 [Divee](https://github.com/dorkman43/divee) 용 테마
 |---|---|
 | <img src="images/tokyo-night.png" width="300" alt="Tokyo Night 테마"> | <img src="images/solarized-light.png" width="300" alt="Solarized Light 테마"> |
 | 색만 바꾼 예제 | 색 + 글꼴(Avenir Next)·글자 110%·둥근 모서리·여유 간격 |
+
+## 마스코트
+
+<img src="images/blob.png" width="560" alt="말랑이 마스코트: 평소·기쁨·주의·졸림">
+
+**말랑이** — SVG 그림 네 장과 PNG 한 장으로 만든 예제예요. 통통 튀기, 맥이 뜨거울 때 빨개지며 김 나기, 배터리 부족일 때 옅어지기는 Divee 가 알아서 붙여요. 팩에는 그림만 있으면 돼요.
+
+만들기: [guides/AI-GUIDE-mascot.md](guides/AI-GUIDE-mascot.md) 를 AI 채팅에 붙여 넣고 캐릭터를 설명하세요(*"졸린 주황색 고양이"*, *"하얀 털복숭이에 빨간 목줄을 한 우리 강아지"*). 테마와 같은 방법으로 설치하고 설정 › 일반 › **마스코트**에서 고르세요.
 
 ## AI 로 내 테마 만들기
 
@@ -35,14 +43,14 @@ macOS 메뉴바 도우미 [Divee](https://github.com/dorkman43/divee) 용 테마
 ## 설치
 
 1. 이 저장소를 내려받거나(**Code › Download ZIP**) 원하는 폴더만 받으세요.
-2. Divee › 설정 › **플러그인** › **폴더에서 설치…** → 테마 폴더(예: `themes/dorkman.tokyo-night`)를 고르세요.
-3. 설정 › 일반 › **테마**에서 고르세요.
+2. Divee › 설정 › **플러그인** › **폴더에서 설치…** → 폴더(예: `themes/dorkman.tokyo-night`, `mascots/dorkman.blob`)를 고르세요.
+3. 설정 › 일반 › **테마**(또는 **마스코트**)에서 고르세요.
 
-테마는 데이터일 뿐이라 코드를 실행하거나 권한을 요청할 수 없어요.
+테마와 마스코트는 데이터일 뿐이라 코드를 실행하거나 권한을 요청할 수 없어요.
 
 ## 내 테마 올리기
 
-Pull request 를 환영해요 — [CONTRIBUTING.md](CONTRIBUTING.md) 를 봐 주세요. `themes/` 아래에 폴더를 넣고 [`index.json`](index.json) 에 한 줄 추가하면 됩니다.
+Pull request 를 환영해요 — [CONTRIBUTING.md](CONTRIBUTING.md) 를 봐 주세요. `themes/` 나 `mascots/` 아래에 폴더를 넣고 [`index.json`](index.json) 에 한 줄 추가하면 됩니다.
 
 ## 라이선스
 

@@ -18,6 +18,15 @@
       "version": "1.0.0",
       "path": "themes/dorkman.solarized-light",
       "preview": "images/solarized-light.png"
+    },
+    {
+      "id": "dorkman.blob",
+      "type": "mascot",
+      "name": "말랑이 (Blob)",
+      "author": "dorkman",
+      "version": "1.0.0",
+      "path": "mascots/dorkman.blob",
+      "preview": "images/blob.png"
     }
   ]
 }
