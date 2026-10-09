@@ -1,0 +1,9 @@
+{
+  "id": "dorkman.solarized-light",
+  "name": "Solarized Light",
+  "version": "1.0.0",
+  "type": "theme",
+  "apiVersion": 1,
+  "author": "dorkman",
+  "description": "따뜻한 크림색 바탕의 밝은 테마. 글꼴(Avenir Next)·크기·모서리·간격까지 바꾸는 예제예요."
+}

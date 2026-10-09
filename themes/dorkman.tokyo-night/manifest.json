@@ -1,0 +1,9 @@
+{
+  "id": "dorkman.tokyo-night",
+  "name": "Tokyo Night",
+  "version": "1.0.0",
+  "type": "theme",
+  "apiVersion": 1,
+  "author": "dorkman",
+  "description": "도쿄의 밤처럼 짙은 남색 바탕에 푸른 강조색. 색만 바꾸는 예제 테마예요."
+}

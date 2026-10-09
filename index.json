@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "items": [
+    {
+      "id": "dorkman.tokyo-night",
+      "type": "theme",
+      "name": "Tokyo Night",
+      "author": "dorkman",
+      "version": "1.0.0",
+      "path": "themes/dorkman.tokyo-night",
+      "preview": "images/tokyo-night.png"
+    },
+    {
+      "id": "dorkman.solarized-light",
+      "type": "theme",
+      "name": "Solarized Light",
+      "author": "dorkman",
+      "version": "1.0.0",
+      "path": "themes/dorkman.solarized-light",
+      "preview": "images/solarized-light.png"
+    }
+  ]
+}

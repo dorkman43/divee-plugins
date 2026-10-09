@@ -1,0 +1,26 @@
+{
+  "appearance": "dark",
+  "colors": {
+    "background": "#1a1b26",
+    "surface": "#1f2335",
+    "cardFill": "#1f2335",
+    "hoverFill": "#292e42",
+    "border": "#292e42",
+    "separator": "#292e42b3",
+    "textPrimary": "#c0caf5",
+    "textSecondary": "#a9b1d6",
+    "textTertiary": "#737aa2",
+    "accent": "#7aa2f7",
+    "onAccent": "#1a1b26",
+    "selectionFill": "#283457",
+    "selectionText": "#c0caf5",
+    "sliderTrack": "#292e42",
+    "sliderFill": "#7aa2f7",
+    "sliderOnFill": "#1a1b26",
+    "sliderOnTrack": "#a9b1d6",
+    "statusOK": "#9ece6a",
+    "statusWarn": "#e0af68",
+    "statusDanger": "#f7768e",
+    "statusActive": "#7dcfff"
+  }
+}

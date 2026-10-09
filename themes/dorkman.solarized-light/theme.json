@@ -1,0 +1,23 @@
+{
+  "appearance": "light",
+  "colors": {
+    "background": "#fdf6e3",
+    "surface": "#eee8d5",
+    "border": "#d9d2bd",
+    "textPrimary": "#586e75",
+    "textSecondary": "#657b83",
+    "textTertiary": "#93a1a1",
+    "accent": "#268bd2",
+    "onAccent": "#fdf6e3",
+    "statusOK": "#859900",
+    "statusWarn": "#b58900",
+    "statusDanger": "#dc322f",
+    "statusActive": "#2aa198"
+  },
+  "shape": {
+    "fontFamily": "Avenir Next",
+    "fontScale": 1.1,
+    "panelRadius": 16,
+    "density": "comfortable"
+  }
+}
