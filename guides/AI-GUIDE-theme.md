@@ -22,7 +22,7 @@ Exactly **one folder with two files**. Show each file in its own code block, wit
 
 - The folder name **must equal** the `id` in manifest.json.
 - `id` = `author.name`, lowercase letters, digits and hyphens only (e.g. `jane.tokyo-night`). If you don't know the user's name, use `me` and tell them they can change it.
-- Optional third item: font files (`.ttf` / `.otf`) — only if the user has a font file and names it. Otherwise use a font that ships with macOS (see below).
+- Optional third item: font files (`.ttf` / `.otf`) — only if the user has a font file and names it. Otherwise use a font that ships with macOS (see below). Divee asks the user before it installs a theme's fonts; until they approve, the theme shows with the system font.
 
 ## manifest.json
 

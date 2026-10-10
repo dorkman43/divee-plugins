@@ -49,11 +49,12 @@ Rules:
 - Optional `minDivee` (e.g. `"1.0.8"`).
 - **Never add `defaultEnabled`** (only for plugins bundled inside Divee; it makes installation fail).
 - `permissions` — leave the whole object out if nothing is needed. Keys (all optional):
-  - `network`: list of hosts `divee.fetch` may reach. Exact host `"api.example.com"` or `"*.example.com"`. Host names only: no `https://`, no path, no port, no bare `*`. **`*.example.com` matches subdomains only, not `example.com` itself** — list both if you need both.
-  - `clipboard`: `true` → `divee.clipboard.write`.
+  - `network`: list of **public** hosts `divee.fetch` may reach. Exact host `"api.example.com"` or `"*.example.com"`. Host names only: no `https://`, no path, no port, no bare `*`. **`*.example.com` matches subdomains only, not `example.com` itself** — list both if you need both. Too-broad wildcards are rejected: `*.com`, `*.co.kr`, `*.github.io` and other shared suffixes — name the real site (`*.mysite.github.io`). IP addresses, `localhost` and `.local` names are **not** allowed here — use `localNetwork`. Public hosts are **https only** with a normal certificate.
+  - `localNetwork`: list of devices on the user's own network or Mac — only when the plugin is really for such a device (NAS, router, Home Assistant, a local server). Exact addresses only: a private IPv4 (`192.168.x.x`, `10.x.x.x`, `172.16–31.x.x`, `127.x.x.x`, `169.254.x.x`, `100.64–127.x.x`), `localhost`, or `name.local`. No `*`, no public IPs, no IPv6, no port/path/`http://` in the list. For these devices `fetch` may use **http or https (self-signed certificates are accepted)**, and the URL may include a port, e.g. `http://192.168.0.20:8123/api/states`. Divee shows the user a ⚠︎ warning for each device and asks again if you add one; on macOS 15+ the system also asks for “Local Network” access the first time. Redirects stay inside the same list: a public server can't send you to a local device and a device can't send you to a public host (that fetch fails). When a redirect changes scheme, host or port, `Authorization`/`Cookie` headers are dropped. Cautions: any device on the same network can answer for a `name.local` name, so send tokens over https and prefer a fixed IP; `100.64–127.x.x` is Tailscale but also ISP shared space — use it only for your Tailscale devices. Keep passwords and tokens in a `secret` setting.
+  - `clipboard`: `true` → `divee.clipboard.write` (only inside a `run` — see Effects).
   - `notifications`: `true` → `divee.notify`.
   - `aiTools`: `true` → `divee.ai.registerTool`. (Divee always asks the user to confirm before a plugin's AI tool runs.)
-  - `longRequests`: `true` → `fetch` may wait up to 600 s (and AI tools up to 620 s). Needs `network`. Only for slow servers.
+  - `longRequests`: `true` → `fetch` may wait up to 600 s (and AI tools up to 620 s). Needs `network` or `localNetwork`. Only for slow servers.
 - `settings` (optional): fields Divee draws in the plugin's settings. Each: `key` (starts with a letter, letters/digits/underscore, ≤ 40 chars, unique), `title`, `type` = `text` | `number` | `toggle` | `choice` | `secret`, optional `default` (text/choice → string, number → number, toggle → true/false; a `choice` default must be one of `choices`; `secret` can't have a default), `choices` (only for `choice`, non-empty, no duplicates), `placeholder`. Use `secret` for API keys (stored in the Keychain). Read values with `divee.settings.get(key)`.
 
 ## main.js — the `divee` API
@@ -73,15 +74,15 @@ A command appears in the panel's search. `id` and `title` required and non-empty
 Per-plugin, survives restarts. Values must be JSON-able (no functions/undefined). `get` returns `null` if missing. 1 MB total.
 
 ### Effects
-- `divee.clipboard.write(text)` — needs `permissions.clipboard`.
+- `divee.clipboard.write(text)` — needs `permissions.clipboard`. **Only inside a `run`** (a command's, a menu action's or an AI tool's, including after `await divee.fetch(...)` there). Refused in card `match` and while loading.
 - `divee.notify(title, body?)` — needs `permissions.notifications`.
-- `divee.openURL(url)` — opens `http`, `https` or `mailto` URLs in the default app. No permission needed.
+- `divee.openURL(url)` — opens `http`, `https` or `mailto` URLs in the default app. No permission needed. **Only inside a `run`** (same rule as `clipboard.write`), and **at most one URL per run**. Refused in card `match` and while loading.
 - `divee.settings.get(key)` — value of a field you declared in `settings` (`undefined` if not declared; `null` if no value and no default).
 - `divee.locale` — `{ language, region, currency }`, e.g. `{ language: 'ko', region: 'KR', currency: 'KRW' }` (any may be `null`).
 - `divee.log(...)` — debug lines shown in Settings › Plugins (last 50).
 
 ### Network — `divee.fetch(url, options?)` → Promise
-- Needs `permissions.network` containing the URL's host. **https only.** Redirects are re-checked against the same list (max 5). No cookies.
+- Needs `permissions.network` containing the URL's host (**https only**), or `permissions.localNetwork` containing the device (http or https). Redirects are re-checked every hop (max 5) and must stay in the same list. No cookies.
 - `options`: `{ method, headers, body, timeout }`. `method` is GET/POST/PUT/PATCH/DELETE/HEAD; `headers` is `{ name: "string value" }`; **`body` must be a string** (use `JSON.stringify(obj)`); `timeout` is seconds, 1–10 (up to 600 only with `longRequests`).
 - Limits: 10 s total, 2 MB response, **4 requests at a time per plugin** (the fifth is rejected — `await` earlier ones).
 - Result: `{ status, ok, headers, text, json() }`. **`text` is a property** (a string), **`json()` is a function.** `ok` is true for 200–299.
@@ -106,9 +107,14 @@ Needs `permissions.aiTools`. Lets Divee's built-in AI call your function. `name`
 
 Time limits (CPU time per call): loading `main.js` 200 ms, card `match` 30 ms, command/menu action/AI tool/after-fetch callbacks 1 s. Exceed it, or throw while loading, and Divee switches the plugin off. No endless loops, no heavy regexes.
 
+Size limits: `menu.set` ≤ 200 items · chips ≤ 500 per item · card `rows` ≤ 500 · `keywords` ≤ 500 · AI tool `parameters` ≤ 20 · `fetch` headers ≤ 100. AI tool and parameter `description` longer than 300 characters is cut (keep them short).
+
+Updates: installing a folder whose `id` is already installed always asks the user to confirm (and warns if a saved API key exists). If someone edits the files of an installed plugin that has permissions or a saved key, Divee asks again in Settings › Plugins › **Review Permissions…** before running it.
+
 ## Easy mistakes
 
 - `res.text()` is wrong → `res.text` (string) or `res.json()`.
+- `divee.openURL` / `divee.clipboard.write` inside a card's `match` is refused → put them in a command or menu action's `run`, or use a card `open`/`copy` action.
 - A card without `keywords` is rejected; a query without a keyword never reaches `match`. Include every word/symbol a user might type (`'mile'`, `'mi'`, `'마일'`).
 - `match` must return `null` when there is no card. `false`, `[]` or an object without `title`/`value` is reported as an error.
 - `fetch` `body` must be a string; `headers` values must be strings.

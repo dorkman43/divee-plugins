@@ -50,14 +50,14 @@ One folder. Show each file in its own code block with the file name above it.
 }
 ```
 
-Rules: `type` is `"mascot"`, `apiVersion` is `1`, `version` like `1.0.0`, `name` 1–40 characters. **Never add `permissions` or `main`.** `images` keys may only be: `normal`, `happy`, `alert`, `sleepy`, `thinking`, `sorry`, `blink`, `menubarLight`, `menubarDark`. Values are file names in the same folder ending in `.svg` or `.png`. List only files you actually made.
+Rules: `type` is `"mascot"`, `apiVersion` is `1`, `version` like `1.0.0`, `name` 1–40 characters. **Never add `permissions` or `main`.** `images` keys may only be: `normal`, `happy`, `alert`, `sleepy`, `thinking`, `sorry`, `blink`, `menubarLight`, `menubarDark`. Values are file names in the same folder ending in `.svg` or `.png`. List only files you actually made. A `.png` must be at most 4096 px on each side and 5 MB (Divee shows it at up to 1024 px).
 
 ## Drawing rules (SVG)
 
 1. **Same canvas for every picture.** Use `viewBox="0 0 200 180"` with `width="200" height="180"`, transparent background (no background rectangle). The character fills most of the canvas, centered, feet/bottom near the lower edge.
 2. **Identical body in every expression.** Copy the exact same body shapes into each file; change only the face (eyes, mouth, small extras like "!" or "z"). Expressions are swapped instantly, so any change in body position looks like a jump.
 3. **Simple and bold.** It's shown as small as 22 pt. Use a few large shapes, thick strokes (≥ 6 units), big eyes. No text, no thin details, no drop shadows.
-4. **Plain SVG only:** `path`, `circle`, `ellipse`, `rect`, `polygon`, `line`, `g`, `linearGradient`/`radialGradient`. No `<image>`, no `<text>`, no filters, no CSS animations, no external links, no scripts.
+4. **Plain SVG only:** `path`, `circle`, `ellipse`, `rect`, `polygon`, `line`, `g`, `linearGradient`/`radialGradient`. No `<image>`, no `<text>`, no `<foreignObject>`, no filters, no CSS animations, no scripts. No external references: `href`/`xlink:href` and `url(...)` may only point to `#id` inside the same file; no `@import`, no `<!ENTITY>`. Divee rejects an SVG that breaks this.
 5. Expressions:
    - `normal` — calm, eyes open
    - `happy` — smiling, eyes as ^ ^ arcs

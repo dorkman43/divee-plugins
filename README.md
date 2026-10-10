@@ -6,7 +6,7 @@ Themes, mascots and plugins for [Divee](https://github.com/dorkman43/divee), the
 
 **You don't need to code.** Each kind has an **AI guide**: paste it into an AI chat (Claude, ChatGPT, Gemini …), say what you want, and the AI gives you a ready-to-install folder.
 
-> Plugins need **Divee 1.0.8 or later** — [download Divee](https://github.com/dorkman43/divee/releases/latest/download/Divee.dmg) (Settings › Plugins).
+> Plugins need **Divee 1.0.8 or later** — [download Divee](https://github.com/dorkman43/divee/releases/latest/download/Divee.dmg) (Settings › Plugins). Local network devices (`localNetwork`) need **1.0.9 or later**.
 
 | Kind | Folder | AI guide | Status |
 |---|---|---|---|

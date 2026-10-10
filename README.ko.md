@@ -6,7 +6,7 @@ macOS 메뉴바 도우미 [Divee](https://github.com/dorkman43/divee) 용 테마
 
 **코딩을 몰라도 됩니다.** 종류마다 **AI 지침서**가 있어요. AI 채팅(Claude, ChatGPT, Gemini 등)에 붙여 넣고 원하는 걸 말하면, AI 가 바로 설치할 수 있는 폴더를 만들어 줍니다.
 
-> 플러그인은 **Divee 1.0.8 이상**에서 쓸 수 있어요 — [Divee 받기](https://github.com/dorkman43/divee/releases/latest/download/Divee.dmg) (설정 › 플러그인).
+> 플러그인은 **Divee 1.0.8 이상**에서 쓸 수 있어요 — [Divee 받기](https://github.com/dorkman43/divee/releases/latest/download/Divee.dmg) (설정 › 플러그인). 집 안 기기 접속(`localNetwork`)은 **1.0.9 이상**이 필요해요.
 
 | 종류 | 폴더 | AI 지침서 | 상태 |
 |---|---|---|---|
