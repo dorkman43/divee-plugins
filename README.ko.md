@@ -12,7 +12,7 @@ macOS 메뉴바 도우미 [Divee](https://github.com/dorkman43/divee) 용 테마
 |---|---|---|---|
 | 🎨 테마 — 색·글꼴·글자 크기·모서리·간격 | [`themes/`](themes) | [AI-GUIDE-theme.md](guides/AI-GUIDE-theme.md) | ✅ 열림 |
 | 🐾 마스코트 — 메뉴바 캐릭터 바꾸기 | [`mascots/`](mascots) | [AI-GUIDE-mascot.md](guides/AI-GUIDE-mascot.md) | ✅ 열림 |
-| 🧩 플러그인 — 새 명령·카드(JavaScript) | [`plugins/`](plugins) | 준비 중 | 🚧 |
+| 🧩 플러그인 — 새 명령·카드(JavaScript) | [`plugins/`](plugins) | [AI-GUIDE-plugin.md](guides/AI-GUIDE-plugin.md) | ✅ 열림 |
 
 ## 테마
 
@@ -29,6 +29,17 @@ macOS 메뉴바 도우미 [Divee](https://github.com/dorkman43/divee) 용 테마
 
 만들기: [guides/AI-GUIDE-mascot.md](guides/AI-GUIDE-mascot.md) 를 AI 채팅에 붙여 넣고 캐릭터를 설명하세요(*"졸린 주황색 고양이"*, *"하얀 털복숭이에 빨간 목줄을 한 우리 강아지"*). 테마와 같은 방법으로 설치하고 설정 › 일반 › **마스코트**에서 고르세요.
 
+## 플러그인
+
+플러그인은 JavaScript 로 Divee 즉석 입력창에 명령과 카드를 더해요. 공식 플러그인 둘은 Divee 안에 이미 들어 있고, 읽고 고쳐 쓰라고 여기에도 두었어요.
+
+- **환율 (`divee.currency`)** — `100달러`, `5만원 달러로`, `엔화 환율` 처럼 치면 유럽중앙은행 기준으로 바꾼 값을 카드로 보여 줘요. 권한: `api.frankfurter.dev` 로만 네트워크.
+- **특수문자 (`divee.symbols`)** — □ ● → ※ 같은 기호를 패널에 칩으로 두고 클릭하면 복사해요. 권한 없음.
+
+**플러그인은 코드**라서 설치할 때 필요한 권한(접속할 주소·클립보드·알림·AI 도구)을 Divee 가 물어요. 동의하기 전에 목록을 읽어 보세요. 테마·마스코트는 묻지 않아요.
+
+만들기: [guides/AI-GUIDE-plugin.md](guides/AI-GUIDE-plugin.md) 를 AI 채팅에 붙여 넣고 원하는 걸 말하세요(*"'3마일' 을 km 로 바꿔 주는 카드"*). 공식 플러그인을 고치려면 폴더를 받아 고친 뒤 **폴더에서 설치…** 하세요 — 같은 id 면 내 것이 내장보다 우선해요.
+
 ## AI 로 내 테마 만들기
 
 1. [guides/AI-GUIDE-theme.md](guides/AI-GUIDE-theme.md) 를 열어 전체를 복사해 AI 채팅에 붙여 넣으세요.
@@ -43,14 +54,14 @@ macOS 메뉴바 도우미 [Divee](https://github.com/dorkman43/divee) 용 테마
 ## 설치
 
 1. 이 저장소를 내려받거나(**Code › Download ZIP**) 원하는 폴더만 받으세요.
-2. Divee › 설정 › **플러그인** › **폴더에서 설치…** → 폴더(예: `themes/dorkman.tokyo-night`, `mascots/dorkman.blob`)를 고르세요.
+2. Divee › 설정 › **플러그인** › **폴더에서 설치…** → 폴더(예: `themes/dorkman.tokyo-night`, `mascots/dorkman.blob`, `plugins/divee.symbols`)를 고르세요.
 3. 설정 › 일반 › **테마**(또는 **마스코트**)에서 고르세요.
 
-테마와 마스코트는 데이터일 뿐이라 코드를 실행하거나 권한을 요청할 수 없어요.
+테마와 마스코트는 데이터일 뿐이라 코드를 실행하거나 권한을 요청할 수 없어요. 플러그인은 코드를 실행해서 이 단계에서 권한을 물어요.
 
 ## 내 테마 올리기
 
-Pull request 를 환영해요 — [CONTRIBUTING.md](CONTRIBUTING.md) 를 봐 주세요. `themes/` 나 `mascots/` 아래에 폴더를 넣고 [`index.json`](index.json) 에 한 줄 추가하면 됩니다.
+Pull request 를 환영해요 — [CONTRIBUTING.md](CONTRIBUTING.md) 를 봐 주세요. `themes/`, `mascots/`, `plugins/` 아래에 폴더를 넣고 [`index.json`](index.json) 에 한 줄 추가하면 됩니다.
 
 ## 라이선스
 

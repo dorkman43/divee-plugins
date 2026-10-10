@@ -27,6 +27,22 @@
       "version": "1.0.0",
       "path": "mascots/dorkman.blob",
       "preview": "images/blob.png"
+    },
+    {
+      "id": "divee.currency",
+      "type": "plugin",
+      "name": "환율 (Currency)",
+      "author": "divee",
+      "version": "1.0.0",
+      "path": "plugins/divee.currency"
+    },
+    {
+      "id": "divee.symbols",
+      "type": "plugin",
+      "name": "특수문자 (Symbols)",
+      "author": "divee",
+      "version": "1.0.0",
+      "path": "plugins/divee.symbols"
     }
   ]
 }

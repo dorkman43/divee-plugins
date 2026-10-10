@@ -1,0 +1,18 @@
+{
+  "id": "divee.symbols",
+  "name": "특수문자",
+  "version": "1.0.0",
+  "type": "plugin",
+  "apiVersion": 1,
+  "author": "divee",
+  "description": "맥 키보드로 치기 어려운 기호(□ ● → ※ …)를 패널에 두고 클릭 한 번에 복사해요. 기호 목록은 설정에서 바꿀 수 있어요.",
+  "main": "main.js",
+  "settings": [
+    {
+      "key": "symbols",
+      "title": "기호 목록(띄어쓰기로 구분)",
+      "type": "text",
+      "default": "□ ■ ○ ● ◎ ◇ ◆ △ ▲ ▽ ▼ ☐ ☑ ✓ ✗ ★ ☆ ※ · … → ← ↑ ↓ ↔ ⇒ ± × ÷ ≠ ≤ ≥ ∞ ° ℃ ₩ € ¥ – — ‘ ’ “ ” 「 」 『 』 【 】 ① ② ③ ④ ⑤ © ™ ⌘ ⌥ ⌃ ⇧ ⇪ ⇥ ⏎ ⌫ ⌦ ⎋ ⏏"
+    }
+  ]
+}

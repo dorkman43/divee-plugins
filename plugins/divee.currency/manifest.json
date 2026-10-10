@@ -1,0 +1,22 @@
+{
+  "id": "divee.currency",
+  "name": "환율",
+  "version": "1.0.0",
+  "type": "plugin",
+  "apiVersion": 1,
+  "author": "divee",
+  "description": "즉석 입력창에 '100달러', '5만원 달러로', '엔화 환율' 처럼 치면 유럽중앙은행 기준 환율로 바꾼 값을 카드로 보여 줘요.",
+  "main": "main.js",
+  "permissions": {
+    "network": ["api.frankfurter.dev"]
+  },
+  "settings": [
+    {
+      "key": "defaultTarget",
+      "title": "바꿀 통화를 안 적었을 때 쓸 통화",
+      "type": "choice",
+      "default": "KRW",
+      "choices": ["KRW", "USD", "EUR", "JPY", "CNY", "GBP", "AUD", "CAD", "CHF", "HKD", "SGD", "THB"]
+    }
+  ]
+}

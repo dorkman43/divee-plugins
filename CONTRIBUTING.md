@@ -35,4 +35,19 @@
 
 ## Plugins / 플러그인
 
-Coming soon. 준비 중이에요.
+1. Make it with [guides/AI-GUIDE-plugin.md](guides/AI-GUIDE-plugin.md), **install it in Divee first** — Settings › Plugins must show no red problem lines, and try every command/card once.
+   [AI 지침서](guides/AI-GUIDE-plugin.md)로 만들고 **먼저 Divee 에 설치해** 문제 줄이 없는지, 명령·카드가 동작하는지 확인하세요.
+2. Folder at `plugins/<author>.<name>/` (folder name = `id`), one entry in `index.json`.
+   폴더는 `plugins/<작성자>.<이름>/`, `index.json` 에 한 줄.
+3. Review checklist / 검토 기준:
+   - [ ] `"type": "plugin"`, `"apiVersion": 1`, no `defaultEnabled` (bundled-only)
+   - [ ] `permissions` lists only what is really needed — no unused `clipboard`, `notifications`, `aiTools`, `longRequests`
+     권한은 꼭 필요한 것만 — 안 쓰는 권한은 빼 주세요
+   - [ ] every `permissions.network` host is named explicitly (no broad wildcards unless needed); the README says what is sent where
+     fetch 도메인은 하나하나 적고, 무엇이 어디로 나가는지 README 에 적어 주세요
+   - [ ] No forbidden APIs: `setTimeout`/`setInterval`, `require`/`import`, Node or browser APIs, global `fetch`, `eval`
+     금지 API 없음
+   - [ ] Every card has `keywords`; `match` is fast (30 ms) and returns a card or `null`
+   - [ ] `aiTools` plugins: Divee always shows a confirmation card before a plugin tool runs; descriptions must say honestly what the tool does
+     `aiTools` 도구는 실행 전에 Divee 가 항상 확인 카드를 띄워요 — 설명을 솔직하게 적어 주세요
+   - [ ] Original code, or code you have the right to share; MIT-compatible
